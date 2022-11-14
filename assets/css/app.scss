@@ -1,0 +1,11 @@
+@import 'base';
+@import 'global';
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 300px;
+}
+
+.theme-container {
+  @apply max-w-7xl mx-auto px-5;
+}

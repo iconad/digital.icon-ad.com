@@ -1,0 +1,117 @@
+html,body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.theme-container-lg {
+  @apply max-w-screen-lg 3xl:max-w-7xl mx-auto px-5;
+}
+
+.theme-container-xl {
+  @apply max-w-screen-xl mx-auto px-5;
+}
+
+.theme-container {
+  /* @apply max-w-7xl mx-auto px-5; */
+  @apply max-w-screen-lg 3xl:max-w-7xl mx-auto px-5;
+}
+.theme-container-3xl {
+  @apply 2xl:max-w-7xl mx-auto px-5;
+}
+
+.theme-container_nopadding {
+  @apply max-w-7xl mx-auto;
+}
+.theme-container-3xl_nopadding {
+  @apply 2xl:max-w-7xl mx-auto;
+}
+
+
+.main-navbar_navbar_menu_li {
+  @apply block border-b-2 border-transparent hover:border-gray-800 font-extrabold md:font-normal;
+}
+
+.main-navbar_navbar_menu_li:last-child {
+  @apply pr-0;
+}
+
+.rainbow-text-ad {
+  @apply font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-theme-sky via-theme-purple to-theme-red;
+}
+
+.rainbow-text-digital {
+  @apply font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-theme-sky via-theme-pink to-theme-red;
+}
+
+.rainbow-text-purple-red {
+  @apply font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-theme-purple via-theme-pink to-theme-red;
+}
+
+.rainbow-text-more-red {
+  @apply font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-theme-purple via-theme-red to-theme-red;
+}
+
+.rainbow-text-plus {
+  @apply font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-theme-sky to-theme-purple;
+}
+
+.block-span{
+  @apply inline lg:block;
+}
+
+.theme-link {
+    @apply border-b border-solid border-transparent transition-all hover:border-gray-400 pb-px inline-block;
+}
+
+.theme-link_nounderline {
+    @apply border-b border-solid border-transparent transition-all hover:text-theme-sky inline-block;
+}
+
+
+.black-button {
+  @apply bg-theme-gray-dark uppercase font-medium rounded-full px-16 py-4 border-4 border-transparent hover:bg-black hover:border-theme-gray-dark;
+}
+
+.section-screen-height {
+  @apply h-screen-60 lg:h-screen-90 3xl:h-screen-70;
+}
+
+.section-screen-height.section-screen-height_90 {
+  @apply h-screen-90 lg:h-screen-90 3xl:h-screen-70;
+}
+
+.section-screen-height.section-screen-height_100 {
+  @apply h-screen lg:h-screen-90 3xl:h-screen-70;
+}
+
+.form {
+  @apply space-y-5;
+}
+
+.form-input {
+  @apply bg-transparent px-5 py-3 w-full focus:outline-none bg-gray-300 bg-opacity-70 focus:bg-opacity-100 rounded-lg;
+}
+
+.form-input:active {
+  @apply outline-none;
+}
+
+.form-button {
+  @apply bg-transparent px-5 py-4 w-full focus:outline-none bg-opacity-70 focus:bg-opacity-100 transition-all;
+}
+
+.form-button.rainbow {
+  @apply text-white font-medium rounded-xl bg-gradient-to-r from-theme-red via-theme-pink to-theme-purple;
+}
+
+.text-shadow-1 {
+  text-shadow: 0px 0px 70px rgba(0,0,0, 0.3);
+}
+
+
+.text-shadow-2-white {
+  text-shadow: 0px 0px 70px rgba(255, 255, 255, 0.9);
+}

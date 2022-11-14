@@ -1,0 +1,57 @@
+<template>
+  <div class="theme-container">
+
+    <div>
+
+      <div class="space-y-12">
+
+        <h3 class="text-3xl lg:text-4xl 3xl:text-5xl uppercase text-black text-center font-bold w-5/6 lg:w-auto mx-auto"> our clients </h3>
+        <div class="flex flex-wrap items-center justify-center">
+
+          <div class="w-1/2 md:w-1/4 rounded overflow-hidden" v-for="client in clients" :key="client.id">
+            <UtilsProjectImage options="w-full sm:w-5/6 object-cover mx-auto" :image="client.logo_black" :title="client.title" />
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="space-x-5 text-center flex justify-center items-center">
+
+      <AssetsRightAngleArrowBlack options="w-6 h-6" />
+      <a href="icon-ad.com/clients" class="theme-link text-gray-900 block text-lg">Check our clients list</a>
+
+    </div>
+
+  </div>
+
+</template>
+
+<script>
+
+  export default {
+    props: ['clients'],
+  }
+</script>
+
+
+<style>
+
+.hooper-indicator:hover, .hooper-indicator.is-active {
+  background-color: #272727;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.hooper-indicator {
+  background-color: #b8b8b8;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+
+</style>

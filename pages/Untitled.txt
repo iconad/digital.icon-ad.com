@@ -1,0 +1,110 @@
+
+<!-- ==== One Text One Image ==== -->
+<div class="flex flex-wrap md:flex-nowrap items-center space-y-10 md:space-y-0 md:space-x-12 bg-gray-100">
+
+    <div class="content-side w-full h-screen-70 rounded-xl">
+    <div class="p-10 flex flex-col justify-between h-full">
+
+        <div class="space-y-5">
+        <h3 class="text-3xl font-semibold">Social Media Audit </h3>
+        <div class="space-y-3">
+            <p>Our Social media management starts with an audit of your current social media profiles and target audience with reference to your current channel setup. our objective is to make sure that the right channels are set up for the right audience.</p>
+            <p>Not all platforms are for every business. we will choose the perfect platform for your business to get the maximum benefits for your brand.</p>
+            <p>We also make sure that the social media profiles are well optimized and complete from all aspects.</p>
+        </div>
+        </div>
+        <!-- top -->
+
+        <div class="flex items-center space-x-2 group">
+        <AssetsRightAngleArrowBlack options="w-6 h-6 pb-1" />
+        <nuxt-link to="/" class="text-x group-hover:border-gray-400 pb-1 border-b border-transparent">Explore our work</nuxt-link>
+        </div>
+        <!-- bottom -->
+
+    </div>
+    </div>
+    <!-- content side -->
+
+    <div class="image-proejct-side w-full relative h-screen-70 rounded-xl overflow-hidden">
+    <img src="https://drupal.icon-ad.com/sites/default/files/2022-08/Screen%20Shot%202022-08-04%20at%2012.33.52%20PM.png" alt="animated image" class="w-full h-screen-70 object-cover object-bottom">
+    </div>
+    <!-- image / project side -->
+
+</div>
+<!-- block end -->
+
+<!-- ==== Two Texts ==== -->
+<div class="flex flex-wrap md:flex-nowrap items-center space-y-10 md:space-y-0 md:space-x-12">
+
+    <div class="content-side w-full h-screen-70 bg-theme-purple text-white rounded-xl">
+    <div class="p-10 flex flex-col justify-center h-full">
+
+        <div class="space-y-5">
+
+        <div>
+            <img src="https://drupal.icon-ad.com/sites/default/files/2022-08/icons8-cursor-64.png" class="w-12" alt="icon">
+        </div>
+
+        <h3 class="text-3xl font-semibold">Targeting the Right Audience </h3>
+        <div class="space-y-3">
+            <p>Our team of social media marketing specialists will develop an engaging and effective social media strategy for your business that delights your customers as we create tailor-made social media strategies for each, and every client adopts it to different social media platforms and digital mediums.</p>
+        </div>
+        </div>
+        <!-- top -->
+
+
+    </div>
+    </div>
+    <!-- content side -->
+
+
+
+    <div class="content-side w-full h-screen-70 bg-gray-100 rounded-xl">
+    <div class="p-10 flex flex-col justify-center h-full">
+
+        <div class="space-y-5">
+        <div>
+            <img src="https://drupal.icon-ad.com/sites/default/files/2022-08/icons8-cursor-64.png" class="w-12" alt="icon">
+        </div>
+        <h3 class="text-3xl font-semibold">Get Traffic on Your Brand</h3>
+        <div class="space-y-3">
+            <p>Our team of social media marketing specialists will develop an engaging and effective social media strategy for your business that delights your customers as we create tailor-made social media strategies for each, and every client adopts it to different social media platforms and digital mediums.</p>
+        </div>
+        </div>
+        <!-- top -->
+
+    </div>
+    </div>
+    <!-- content side -->
+
+
+</div>
+<!-- block end -->
+
+<!-- ==== One Project ==== -->
+<div class="flex flex-wrap md:flex-nowrap items-center space-y-10 md:space-y-0 md:space-x-12">
+
+
+    <div class="image-proejct-side w-full relative h-screen-70 rounded-xl overflow-hidden bg-no-repeat bg-cover bg-center" style="background-image: url(https://drupal.icon-ad.com/sites/default/files/2022-08/Screen%20Shot%202022-08-01%20at%205.07.12%20PM_1.png)">
+
+
+    <div class="h-full w-full flex items-end justify-center text-center p-10 bg-gradient-to-b from-transparent to-theme-black-opacity-50">
+
+        <div class="space-y-5 text-white mb-6">
+        <nuxt-link to="/" class="text-3xl font-medium">Our Last Digital Campaign</nuxt-link>
+        <div class="w-full md:w-3/4 text-sm space-y-3 mx-auto">
+            <p>showcasing the foresight, vision, and ambition of H.H. Sheikh Mohammad Bin Rashid Al Maktoum</p>
+        </div>
+        <div class="flex items-center justify-center space-x-2 group w-full">
+            <AssetsPlayButtonWhite options="w-5 h-5 pb-1" />
+            <nuxt-link to="/" class="group-hover:border-gray-400 pb-1 border-b border-transparent">Watch the video</nuxt-link>
+        </div>
+        </div>
+
+    </div>
+    </div>
+    <!-- image / project side -->
+
+</div>
+<!-- block end -->
+
