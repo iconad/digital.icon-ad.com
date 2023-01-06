@@ -1,12 +1,12 @@
 <template>
   <div>
 
-    <section class="projects-carousel relative">
+    <section class="projects-carousel relative" v-if="carousel.length != 0">
       <AdvertisingProjectSelectedProjectsCarousel :projects="carousel" />
     </section>
     <!-- projects carousel -->
 
-    <div class="projects-main mt-20 lg:my-32">
+    <div class="projects-main" :class="carousel.length != 0 ? 'mt-20 mb-20 lg:mb-32' : 'mt-[11rem] mb-20 lg:mb-32' ">
 
       <div class="theme-container">
 
@@ -27,7 +27,7 @@
         </div>
         <!-- projects filter -->
 
-        <div class="projects mt-20">
+        <div v-if="projects.length" class="projects mt-20">
           <!-- <div class="projects-masonry-grid gap-16 grid grid-cols-2 grid-flow-row"> -->
             <client-only>
               <masonry :cols="{default: 2, 920: 1}" :gutter="{default: '50px', 1120: '20px', 880: '50px'}" >
@@ -36,8 +36,8 @@
                 <UtilsProjectImage options="bg-gray-100 w-full object-cover rounded-2xl overflow-hidden" :mini="project.image_mini" :image="project.large_thumb" />
 
                 <div class="mt-5 space-y-3 px-5 pt-3 pb-8 w-full lg:w-3/4">
-                  <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold uppercase">
-                    <nuxt-link :to="`/projects${project.slug}`"> {{ project.title }} </nuxt-link>
+                  <h2 class="text-xl md:text-2xl 2xl:text-3xl font-semibold uppercase">
+                    <nuxt-link :to="`/projects${project.slug}`" v-html="project.title"> </nuxt-link>
                   </h2>
                   <!-- <div v-html="project.body" class="text-sm md:text-base opacity-80"></div> -->
                 </div>
@@ -50,8 +50,15 @@
         </div>
         <!-- projects -->
 
+        <div v-else class="h-[40vh] flex items-center justify-center">
+          <p class="text-lg font-semibold opacity-50">0 Projects found!</p>
+        </div>
+
         <client-only>
-          <infinite-loading v-if="projects.length" spinner="bubbles" @infinite="infiniteScroll"></infinite-loading>
+          <infinite-loading v-if="projects.length" @infinite="infiniteScroll">
+            <div slot="spinner">Loading...</div>
+            <div slot="no-more">The End!</div>
+          </infinite-loading>
         </client-only>
 
 
@@ -98,7 +105,7 @@ export default {
     },
 
     getProjectsWithPagination () {
-      this.$axios.$get(`/all-projects?_format=json&subsidiary=1&industriy=${this.selectedIndustry}&expertises=${this.selectedExpertie}`).then(resp => {
+      this.$axios.$get(`/all-projects?_format=json&subsidiary=1&industriy=${this.selectedIndustry}`).then(resp => {
           this.projects = resp;
         })
         .catch(err => {
@@ -132,7 +139,7 @@ export default {
 
   async asyncData({ $axios, store }) {
 
-    const carousel = await $axios.$get(`/projects/projects-carousel`)
+    const carousel = await $axios.$get(`/projects/home/slides/digital`)
     const projects = await $axios.$get(`/all-projects?_format=json&page=0&subsidiary=1`)
     const expertise = await $axios.$get(`/expertises`)
     const industries = await $axios.$get(`/industries-list`)

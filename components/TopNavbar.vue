@@ -1,16 +1,18 @@
 <template>
   <div id="topnavbar" class="bg-black text-white top-navbar fixed w-full left-0 top-0 z-50">
       <div class="theme-container">
-          <div class="flex items-center justify-center md:justify-between">
+          <div class="flex items-center justify-end lg:justify-between">
 
-            <div class="join-us tracking-widest space-x-1 hidden lg:flex items-start">
+            <div class="join-us tracking-widest space-x-3 hidden lg:flex items-start text-sm lg:text-xs 2xl:text-sm">
                 <a href="mailto:info@icon-ad.com" class="block theme-link font-medium">info@icon-ad.com</a>
+                <!-- <span class="text-gray-400">|</span>
+                <a href="tel:+97142636550" class="block theme-link font-medium">+97142636550</a> -->
             </div>
             <!-- join us link -->
 
-              <ul class="remove-last-bordder flex items-center uppercase text-sm lg:text-xs 2xl:text-sm tracking-wider -ml-3 overflow-x-auto">
+              <ul class="remove-last-border flex items-center uppercase text-sm lg:text-xs 2xl:text-sm tracking-wider -ml-3">
                   <li v-for="(item, i) in nav" :key="i">
-                       <a :href="item.link" :class="item.active ? 'bg-white text-black' : ''" class="w-[150px] lg:w-auto flex justify-center border-r border-gray-600 lg:border-0 py-4 px-2 xl:px-3 block font-semibold lg:font-medium hover:bg-white focus:outline-none focus:text-black focus:bg-white hover:text-black">{{item.name}}</a>
+                       <a :href="item.link" :class="item.active ? 'bg-white text-black' : ''" class="w-full lg:w-auto flex justify-center py-4 px-2 xl:px-3 block font-medium hover:bg-white focus:outline-none focus:text-black focus:bg-white hover:text-black">{{item.name}}</a>
                   </li>
               </ul>
               <!-- navbar list -->
@@ -28,15 +30,15 @@ data() {
     nav:[
     {
       name: 'about',
-      link: '/about',
+      link: 'https://icon-ad.com/about',
       active: false,
-      external: false
+      external: true
     },
     {
       name: 'advertising',
       link: 'https://advertising.icon-ad.com',
       active: false,
-      external: false
+      external: true
     },
     {
       name: 'digital',
@@ -58,15 +60,15 @@ data() {
     },
     {
       name: 'clients',
-      link: '/clients',
+      link: 'https://icon-ad.com/clients',
       active: false,
-      external: false
+      external: true
     },
     {
       name: 'ideas',
-      link: '/ideas',
+      link: 'https://icon-ad.com/ideas',
       active: false,
-      external: false
+      external: true
     },
   ]
   }
@@ -95,7 +97,7 @@ data() {
 
 <style>
 
-.remove-last-bordder li:last-child a {
+.remove-last-border li:last-child a {
   border: none!important;
 }
 

@@ -8,8 +8,8 @@
         <h3 class="text-3xl lg:text-4xl 3xl:text-5xl uppercase text-black text-center font-bold w-5/6 lg:w-auto mx-auto"> our clients </h3>
         <div class="flex flex-wrap items-center justify-center">
 
-          <div class="w-1/2 md:w-1/4 rounded overflow-hidden" v-for="client in clients" :key="client.id">
-            <UtilsProjectImage options="w-full sm:w-5/6 object-cover mx-auto" :image="client.logo_black" :title="client.title" />
+          <div class="w-1/2 sm:w-1/3 lg:w-1/6 rounded overflow-hidden" v-for="client in clients" :key="client.id">
+            <UtilsProjectImage options="w-5/6 lg:w-full object-cover mx-auto" :image="client.logo_black" :title="client.title" />
           </div>
 
         </div>
@@ -20,7 +20,7 @@
 
     <div class="space-x-5 text-center flex justify-center items-center">
 
-      <AssetsRightAngleArrowBlack options="w-6 h-6" />
+      <AssetsRightAngleArrowBlack options="w-5 h-5" />
       <a href="icon-ad.com/clients" class="theme-link text-gray-900 block text-lg">Check our clients list</a>
 
     </div>

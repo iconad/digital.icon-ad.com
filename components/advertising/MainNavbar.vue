@@ -28,7 +28,7 @@
                         <nuxt-link to="/projects">Work</nuxt-link>
                     </li>
                     <li class="main-navbar_navbar_menu_li lg:text-base">
-                        <nuxt-link to="/services">Expertise</nuxt-link>
+                        <nuxt-link to="/expertise">Expertise</nuxt-link>
                     </li>
                 </ul>
                 <!-- navbar menu -->

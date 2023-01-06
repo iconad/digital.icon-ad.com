@@ -1,12 +1,13 @@
 <template>
   <div>
 
-    <!-- <div class="this-navbar"> -->
-        <TopNavbar class="top-navbar-1" />
-        <AdvertisingMainNavbar class="top-navbar-2" />
+      <!-- <div class="this-navbar"> -->
+      <TopNavbar class="top-navbar-1 hidden md:block" />
+      <AdvertisingMainNavbar class="top-navbar-2 hidden md:block" />
+      <AdvertisingMobileMegaMenu class="block md:hidden" />
       <!-- </div> -->
 
-      <div class="mt-20">
+      <div class="mt-16">
         <Nuxt />
       </div>
 

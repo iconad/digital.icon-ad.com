@@ -6,6 +6,7 @@
         image: project.cover_original,
         mini: project.cover_image_mini,
         title: project.title,
+        case: project.case,
         client: project.client,
         services: project.services,
         custom_client: project.custom_client
@@ -16,13 +17,13 @@
     <div class="project-content space-y-8">
 
       <!-- ===== Project Content ===== -->
-      <div class="flex theme-container-lg my-24 " v-if="project && project.detail">
-        <div class="w-full space-y-3" v-html="project.detail"></div>
+      <div class="flex theme-container-lg my-24" v-if="project && project.detail">
+        <div class="w-full space-y-3 white-bg-content" v-html="project.detail"></div>
       </div>
       <!-- paragraph -->
 
 
-      <div class="theme-container-lg space-y-8">
+      <div class="theme-container-lg space-y-8 mt-24">
         <div class="rounded-2xl overflow-hidden" v-if="project && project.video_1">
           <client-only>
             <vimeo-player
@@ -82,11 +83,11 @@
 
       <!-- ===== Project Images ===== -->
        <div v-if="projectsImages.length != 0" class="project-images mt-2 theme-container-lg">
-        <div class="inner w-full">
-          <div class="project image mb-8" v-for="(image, i) in projectsImages" :key="i">
-
-            <a :href="`${storageUrl}${image.big}`" target="_blank" v-if="projectsImages != null">
-              <UtilsImage v-if="image.big" options="w-full rounded-3xl overflow-hidden" :mini="image.mini" :image="image.big" />
+        <div class="inner w-full grid grid-cols-6 gap-2 md:gap-4">
+          <div class="project image mb-8 h-full" :class="image.class ? image.class : 'col-span-6'" v-for="(image, i) in projectsImages" :key="i">
+            <!-- {{ image.hd }} -->
+            <a :href="`${storageUrl}${image.hd}`" target="_blank" v-if="projectsImages != null">
+              <UtilsImage v-if="image.big" options="w-full rounded-3xl overflow-hidden" :mini="image.mini" :image="image.hd" />
             </a>
 
           </div>
@@ -98,9 +99,9 @@
     <!-- project-content -->
 
 
-    <section class="related-projects mt-24 theme-container-lg" v-if="relatedProjects.length != 0">
+    <section class="related-projects mt-24 theme-container-lg " v-if="relatedProjects.length != 0">
 
-      <div class="text-bold mb-5">You may like this</div>
+      <div class="font-semibold mb-5 text-lg">You may like this</div>
 
       <AdvertisingProjectRelatedProjects :projects="relatedProjects" />
 
@@ -118,8 +119,115 @@ import Atos from '~/utils/Atos'
 
   export default {
     scrollToTop: true,
+    head() {
+    return {
+       title: this.project ? `${this.project.title} | Icon Advertising LLC` : "Icon Advertising LLC.",
+       meta: [
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.project.title
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.seo && this.seo.description ? this.seo.description : ""
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.project.image_mini
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: this.project.title
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.project.title
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.seo && this.seo.description ? this.seo.description : ""
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.project.image_mini
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: this.project.image_mini
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: this.project.title
+        },
+        { property: "og:site_name", content: "Icon Advertising LLC" },
+        {
+          hid: "description",
+          name: "description",
+          content: this.seo && this.seo.description ? this.seo.description : "",
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: this.seo && this.seo.keywords ? this.seo.keywords : "",
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: this.project.slug,
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content:  this.project.title,
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.seo && this.seo.description ? this.seo.description : "",
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: this.project.image_mini,
+        },
+        {
+          hid: "og:image:type",
+          property: "og:image:type",
+          content: "image/jpeg",
+        },
+        {
+          hid: "og:image:width",
+          property: "og:image:width",
+          content: "1200",
+        },
+        {
+          hid: "og:image:height",
+          property: "og:image:height",
+          content: "667",
+        },
+      ],
+
+      link: [
+        {
+          hid: "canonical",
+          rel: "canonical",
+          href: this.project ? this.slug : "",
+        },
+      ]
+    };
+    },
     data() {
       return {
+        relatedProjects: [],
         options: {
         autoplay:false,
         responsive:true,
@@ -139,8 +247,13 @@ import Atos from '~/utils/Atos'
     },
 
     computed: {
+      seo () {
+        return this.project.seo[0];
+      },
       projectsImages () {
 
+        const classArray = this.project.project_images_class.split(',')
+        const hdArray = this.project.project_images_hd.split(',')
         const bigArray = this.project.project_images.split(',')
         const miniArray = this.project.project_images_mini.split(',')
 
@@ -154,9 +267,11 @@ import Atos from '~/utils/Atos'
 
           }else{
 
-            const data = { big: element, mini: miniArray[0] }
+            const data = { big: element, mini: miniArray[0], hd: hdArray[0], class: classArray[0] }
             images.push(data)
             miniArray.shift()
+            hdArray.shift()
+            classArray.shift()
           }
 
         });
@@ -169,16 +284,18 @@ import Atos from '~/utils/Atos'
       },
     },
 
+    async fetch() {
+      this.relatedProjects = await fetch(
+      `https://drupal.icon-ad.com/api/projects/${this.project.id}/digital-related`
+      ).then(res => res.json())
+    },
+
     async asyncData({ $axios, params }) {
 
     const project = await $axios.$get(`/projects/slug/${params.project}`)
-    // const relatedProjects = await $axios.$get(`/projects/${project[0].services_id}/related`)
-    const relatedProjects = await $axios.$get(`/projects/related`)
-
 
     return {
       project: project[0],
-      relatedProjects
     }
 
 

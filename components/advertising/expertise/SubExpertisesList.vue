@@ -7,7 +7,7 @@
           <div class="w-8">
             <UtilsImage :mini="expertie.image_mini" :image="expertie.image" options="w-full object-cover" />
           </div>
-          <h3 class="text-2xl text-white font-medium"> {{expertie.title}} </h3>
+          <h3 class="text-xl text-white font-medium" v-html="expertie.title"> </h3>
         </div>
         <!-- expertie -->
 

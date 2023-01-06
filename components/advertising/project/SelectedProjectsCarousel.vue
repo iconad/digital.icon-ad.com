@@ -14,9 +14,9 @@
                   <div class="theme-container w-full mb-16 md:mb-24 lg:mb-32">
 
                     <div class="w-full">
-                      <h1 class="text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 lg:mb-5 w-full lg:w-1/3"> {{ project.title }} </h1>
+                      <h1 class="text-2xl md:text-3xl 2xl:text-4xl font-semibold mb-3 lg:mb-5 w-full lg:w-1/3" v-html="project.title"></h1>
 
-                      <nuxt-link to="/" class="flex items-center space-x-3">
+                      <nuxt-link :to="`/projects${project.slug}`" class="flex items-center space-x-3">
                         <AssetsRightAngleArrowWhite options="w-4 lg:w-6 h-4 lg:w-6" />
                         <span class="text-lg lg:text-2xl font-light">Read Case Study</span>
                       </nuxt-link>
@@ -44,10 +44,10 @@
                 <div v-for="(project, i) in projects" :key="i" class="w-full h-24 lg:h-32 flex flex-col cursor-pointer" @click="goToSlide(i)">
 
                   <div class="h-[2px] lg:h-[3px] w-full bg-gray-400 rounded-full relative mb-4" >
-                    <div :class="currentSlide == i ? 'slidebar-current' : ''" class="slidebar absolute left-0 top-0 bg-white h-full rounded-full"></div>
+                    <div :class="currentSlide == i && projects.length > 1 ? 'slidebar-current' : ''" class="slidebar absolute left-0 top-0 bg-white h-full rounded-full"></div>
                   </div>
-                  <div class="text-sm lg:text-base font-medium">{{project.client ? project.client : project.custom_client }} </div>
-                  <div class="text-xxs lg:text-sm opacity-80"> {{ project.title.substring(0, 35) }} </div>
+                  <div class="text-sm lg:text-base font-medium uppercase">{{project.client ? project.client : project.custom_client }} </div>
+                  <div class="text-xxs lg:text-sm opacity-80 capitalize"> {{ project.title.substring(0, 35) }} </div>
 
                 </div>
                 <!-- project -->

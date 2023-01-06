@@ -12,12 +12,16 @@
           <div class="theme-container-lg w-full mb-16 md:mb-24 lg:mb-32 flex flex-col justify-center space-y-12">
 
             <div class="w-full">
-              <h1 class="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-semibold mb-3 lg:mb-5 w-full lg:w-1/2" v-html="data.title"></h1>
+              <div class="w-full" v-if="data.title">
+              <h1
+              :class="data.case.toLowerCase() == 'uppercase' ? 'uppercase' : data.case.toLowerCase() == 'capitalize' ? 'capitalize' : data.case.toLowerCase() == 'lowercase' ? 'lowercase' : 'capitalize'"
+               class="text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-semibold mb-3 lg:mb-5 w-full lg:w-1/2 " v-html="data.title"></h1>
+            </div>
             </div>
 
             <div class="flex items-center justify-center">
 
-              <div class="w-full text-lg lg:text-xl">
+              <div v-if="data.client || data.custom_client" class="w-full text-lg lg:text-xl">
                 <div class="font-bold">Client</div>
                 <div v-if="data.client" v-html="data.client"></div>
                 <div v-else v-html="data.custom_client"></div>
@@ -26,7 +30,13 @@
 
               <div class="w-full text-lg lg:text-xl">
                 <div class="font-bold">Scope of work </div>
-                <div v-html="data.services"></div>
+                <div v-if="expertises">
+                  <span v-for="(expertie, i) in expertises" :key="expertie">
+                    <span v-html="expertie"></span>
+                    <span v-if="expertises.length !== i+1">,</span>
+                  </span>
+                </div>
+                <div v-else v-html="data.services"></div>
               </div>
               <!-- w-full -->
 
@@ -53,6 +63,19 @@
       return {
       }
     },
+    computed: {
+      expertises () {
+        if(this.data.expertises) {
+        let x = this.data.expertises.split(',')
+        let n = []
+        x.forEach(element => {
+          n.push(element.replace('#',''))
+        });
+        // return this.data.expertises.replace('#','')
+        return n;
+      }
+      }
+    }
 
   }
 </script>

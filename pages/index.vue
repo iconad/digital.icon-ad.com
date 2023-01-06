@@ -50,7 +50,7 @@
                 </div>
               </div>
               <div class="img transform hover:scale-105 transition-all duration-700" v-if="content.image">
-                <UtilsImage options="w-full" :style="`height: ${content.height}rem`" :mini="content.image_mini" :image="content.image" />
+                <UtilsImage options="w-full h-full object-cover" :style="`height: ${content.height}rem`" :mini="content.image_mini" :image="content.image" />
               </div>
             </div>
 
@@ -63,7 +63,7 @@
     </section>
     <!-- digital projects -->
 
-    <section id="ourResult" class="theme-container mt-16 lg:mt-0 pb-32">
+    <section id="ourResult" class="theme-container mt-16 lg:mt-0 pb-64">
 
       <div class="text-center space-y-10">
 
@@ -105,7 +105,7 @@
     <!-- our result -->
 
     <section id="digitalExperie" class="bg-black">
-      <AdvertisingExpertiseExpertises :expertise="expertise" />
+      <AdvertisingExpertiseExpertises :expertises="expertise" />
     </section>
     <!-- our digital experience -->
 
@@ -117,7 +117,7 @@
     </section>
     <!-- expertises section end -->
 
-    <section id="ContactSection" class="contact-section text-white py-32">
+    <section id="ContactSection" class="contact-section text-white pb-32">
        <div class="theme-container">
          <div class="bg-gray-100 rounded-2xl overflow-hidden px-10 lg:px-0 py-32">
           <FormsContactUs
@@ -163,7 +163,7 @@
     async asyncData({ $axios, store }) {
 
     const page = await $axios.$get(`/pages/digital-home`)
-    const expertise = await $axios.$get(`/digital-expertise-x`)
+    const expertise = await $axios.$get(`/home-digital-expertises`)
     const clients = await $axios.$get(`/clients-digital`)
 
       return {

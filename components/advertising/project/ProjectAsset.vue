@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-200 rounded-3xl overflow-hidden">
+  <div class="bg-gray-200 rounded-xl md:rounded-3xl overflow-hidden">
     <!-- <div class="hidden">{{asset.type}}</div> -->
     <template v-if="asset.type.toLowerCase() == 'video'">
       <client-only>
@@ -11,8 +11,8 @@
       </client-only>
     </template>
     <div v-else>
-      <a :href="`${storageUrl}${asset.image_original}`" target="_blank">
-        <UtilsImage options="w-full atos" :mini="asset.image_mini" :image="asset.image_original" />
+      <a :href="`${storageUrl}${asset.image_hd}`" target="_blank">
+        <UtilsImage options="w-full atos" :mini="asset.image_mini" :image="asset.image_hd" />
     </a>
     </div>
   </div>
