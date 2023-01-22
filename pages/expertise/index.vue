@@ -68,6 +68,19 @@
 <script>
   export default {
 
+    head: {
+      title: 'SEO/SEM, Social Media, PPC Services in Dubai | ICON Digital',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `ICON Digital is a Full Service Digital Marketing Agency in Dubai, focused on results driven digital marketing solutions including SEO, SEM, Social Media.`
+        }
+      ],
+    },
+
     computed: {
       expertise () {
         return this.page[0].content;

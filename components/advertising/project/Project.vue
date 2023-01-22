@@ -15,7 +15,7 @@
 
 <script>
   export default {
-    props: ['project', 'size'],
+    props: ['project', 'size', 'height'],
     methods: {
       goTo() {
         this.$router.push({path: `/projects${this.project.slug}`});

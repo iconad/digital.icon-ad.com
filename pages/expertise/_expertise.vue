@@ -18,7 +18,6 @@
 
 
     <div class="expertie-body theme-container text-gray-900 my-24">
-
       <div v-html="expertise.body" class="white-bg-content"></div>
 
     </div>
@@ -33,9 +32,7 @@
           <!-- ======= Header ======== -->
 
           <header class="flex justify-between items-center py-3 cursor-pointer select-none cursor-pointer" @click="accordion(data.id)">
-            <h3 class="text-gray-900 font-semibold text-lg">
-                {{ data.title }}
-            </h3>
+            <h3 class="text-gray-900 font-semibold text-lg" v-html="data.title"></h3>
             <div class="w-7 h-7 flex items-center justify-center">
                 <!-- icon by feathericons.com -->
                 <svg aria-hidden="true" class="" data-reactid="266" fill="none" height="24" stroke="#606F7B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -86,6 +83,104 @@
 
 
     export default {
+      head() {
+        return {
+          title: this.expertise ? `${this.seo.title.replace(/&amp;/g, '&')} | ICON Digital` : "ICON Digital",
+          meta: [
+            {
+              hid: 'twitter:title',
+              name: 'twitter:title',
+              content: this.seo.title.replace(/&amp;/g, '&')
+            },
+            {
+              hid: 'twitter:description',
+              name: 'twitter:description',
+              content: this.seo && this.seo.description ? this.seo.description : ""
+            },
+            // {
+            //   hid: 'twitter:image',
+            //   name: 'twitter:image',
+            //   content: this.expertise.image_mini
+            // },
+            // {
+            //   hid: 'twitter:image:alt',
+            //   name: 'twitter:image:alt',
+            //   content: this.expertise.page_title.replace(/&amp;/g, '&')
+            // },
+            {
+              hid: 'og:title',
+              property: 'og:title',
+              content: this.seo.title.replace(/&amp;/g, '&')
+            },
+            {
+              hid: 'og:description',
+              property: 'og:description',
+              content: this.seo && this.seo.description ? this.seo.description : ""
+            },
+            // {
+            //   hid: 'og:image',
+            //   property: 'og:image',
+            //   content: this.expertise.image_mini
+            // },
+            // {
+            //   hid: 'og:image:secure_url',
+            //   property: 'og:image:secure_url',
+            //   content: this.expertise.image_mini
+            // },
+            // {
+            //   hid: 'og:image:alt',
+            //   property: 'og:image:alt',
+            //   content: this.expertise.page_title.replace(/&amp;/g, '&')
+            // },
+            { property: "og:site_name", content: "Icon Advertising LLC" },
+            {
+              hid: "description",
+              name: "description",
+              content: this.seo && this.seo.description ? this.seo.description : "",
+            },
+            {
+              hid: "keywords",
+              name: "keywords",
+              content: this.seo && this.seo.keywords ? this.seo.keywords : "",
+            },
+            {
+              hid: "og:url",
+              property: "og:url",
+              content: this.expertise.slug,
+            },
+            {
+              hid: "og:title",
+              property: "og:title",
+              content:  this.seo.title.replace(/&amp;/g, '&'),
+            },
+            {
+              hid: "og:description",
+              property: "og:description",
+              content: this.seo && this.seo.description ? this.seo.description : "",
+            },
+            // {
+            //   hid: "og:image",
+            //   property: "og:image",
+            //   content: this.expertise.image_mini,
+            // },
+            // {
+            //   hid: "og:image:type",
+            //   property: "og:image:type",
+            //   content: "image/jpeg",
+            // },
+            // {
+            //   hid: "og:image:width",
+            //   property: "og:image:width",
+            //   content: "1200",
+            // },
+            // {
+            //   hid: "og:image:height",
+            //   property: "og:image:height",
+            //   content: "667",
+            // },
+          ]
+        };
+      },
       data() {
         return {}
       },
@@ -122,6 +217,9 @@
       },
 
       computed: {
+        seo () {
+          return JSON.parse(this.expertise.seo)[0];
+        },
         accordionData() {
 
            if (this.expertise.accordion) {

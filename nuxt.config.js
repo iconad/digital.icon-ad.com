@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "Creativity & Brand Experience Reimagined | ICON",
+    title: "Best Digital Marketing Agency in Dubai | ICON Digital",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -10,13 +10,12 @@ export default {
       {
         hid: "title",
         name: "title",
-        content: "Creativity & Brand Experience Reimagined | ICON"
+        content: "Best Digital Marketing Agency in Dubai | ICON Digital"
       },
       {
         hid: "description",
         name: "description",
-        content:
-          "A creative advertising, branding, and digital agency located in Dubai, U.A.E. provides professional services to help clients reach their marketing and business objectives."
+        content: "As a top Digital Marketing Agency in Dubai, we offer award-winning services for marketing strategy, platform setup, and optimization to clients of all sizes."
       },
       {
         hid: "keywords",
@@ -42,6 +41,7 @@ export default {
     { src: "~/plugins/vue-scroll", mode: "client" },
     { src: "~/plugins/vue-gsap", mode: "client" },
     { src: "~/plugins/vue-progressive-image", mode: "client" },
+    { src: "~/plugins/vue-easy-lightbox", mode: "client" },
     { src: "~/plugins/vue-masonry", mode: "client" }
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -116,6 +116,16 @@ export default {
       priority: 1,
       lastmodISO: new Date().toISOString().split('T')[0]
     }))
+  },
+
+  gtm: {
+    id: 'GTM-MV67C85', // Used as fallback if no runtime config is provided
+  },
+
+  publicRuntimeConfig: {
+    gtm: {
+      id: process.env.GOOGLE_TAG_MANAGER_ID
+    }
   },
 
 

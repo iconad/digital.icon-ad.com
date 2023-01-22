@@ -19,7 +19,7 @@
             </div>
             </div>
 
-            <div class="flex items-center justify-center">
+            <div class="flex items-center justify-center capitalize">
 
               <div v-if="data.client || data.custom_client" class="w-full text-lg lg:text-xl">
                 <div class="font-bold">Client</div>
@@ -29,7 +29,7 @@
               <!-- w-full -->
 
               <div class="w-full text-lg lg:text-xl">
-                <div class="font-bold">Scope of work </div>
+                <div class="font-bold" v-show="expertises">Scope of work </div>
                 <div v-if="expertises">
                   <span v-for="(expertie, i) in expertises" :key="expertie">
                     <span v-html="expertie"></span>

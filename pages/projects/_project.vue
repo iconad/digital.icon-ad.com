@@ -14,10 +14,23 @@
     </section>
     <!-- cover -->
 
+    <client-only>
+      <vue-easy-lightbox
+        :visible="visible"
+        :imgs="imgs"
+        :index="index"
+        @hide="handleHide"
+      ></vue-easy-lightbox>
+    </client-only>
+
+    <div id="DigitalNumbers2" class="theme-container-lg mt-16 sm:mt-32" v-if="project.numbers">
+      <AdvertisingProjectDigitalNumbers :numbers="project.numbers" />
+    </div>
+
     <div class="project-content space-y-8">
 
       <!-- ===== Project Content ===== -->
-      <div class="flex theme-container-lg my-24" v-if="project && project.detail">
+      <div class="flex theme-container-lg my-16 sm:my-24" v-if="project && project.detail">
         <div class="w-full space-y-3 white-bg-content" v-html="project.detail"></div>
       </div>
       <!-- paragraph -->
@@ -86,9 +99,9 @@
         <div class="inner w-full grid grid-cols-6 gap-2 md:gap-4">
           <div class="project image mb-8 h-full" :class="image.class ? image.class : 'col-span-6'" v-for="(image, i) in projectsImages" :key="i">
             <!-- {{ image.hd }} -->
-            <a :href="`${storageUrl}${image.hd}`" target="_blank" v-if="projectsImages != null">
+            <div @click="showLightbox(i)" target="_blank" v-if="projectsImages != null">
               <UtilsImage v-if="image.big" options="w-full rounded-3xl overflow-hidden" :mini="image.mini" :image="image.hd" />
-            </a>
+            </div>
 
           </div>
         </div>
@@ -99,7 +112,7 @@
     <!-- project-content -->
 
 
-    <section class="related-projects mt-24 theme-container-lg " v-if="relatedProjects.length != 0">
+    <section class="box related-projects mt-24 theme-container-lg " v-if="relatedProjects.length != 0">
 
       <div class="font-semibold mb-5 text-lg">You may like this</div>
 
@@ -121,12 +134,12 @@ import Atos from '~/utils/Atos'
     scrollToTop: true,
     head() {
     return {
-       title: this.project ? `${this.project.title} | Icon Advertising LLC` : "Icon Advertising LLC.",
+       title: this.project ? `${this.project.title.replace(/&amp;/g, '&')} | Icon Advertising LLC` : "Icon Advertising LLC.",
        meta: [
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: this.project.title
+          content: this.project.title.replace(/&amp;/g, '&')
         },
         {
           hid: 'twitter:description',
@@ -141,12 +154,12 @@ import Atos from '~/utils/Atos'
         {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
-          content: this.project.title
+          content: this.project.title.replace(/&amp;/g, '&')
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.project.title
+          content: this.project.title.replace(/&amp;/g, '&')
         },
         {
           hid: 'og:description',
@@ -166,7 +179,7 @@ import Atos from '~/utils/Atos'
         {
           hid: 'og:image:alt',
           property: 'og:image:alt',
-          content: this.project.title
+          content: this.project.title.replace(/&amp;/g, '&')
         },
         { property: "og:site_name", content: "Icon Advertising LLC" },
         {
@@ -187,7 +200,7 @@ import Atos from '~/utils/Atos'
         {
           hid: "og:title",
           property: "og:title",
-          content:  this.project.title,
+          content:  this.project.title.replace(/&amp;/g, '&'),
         },
         {
           hid: "og:description",
@@ -227,6 +240,9 @@ import Atos from '~/utils/Atos'
     },
     data() {
       return {
+        imgs: '',
+        visible: false,
+        index: 0,
         relatedProjects: [],
         options: {
         autoplay:false,
@@ -241,9 +257,33 @@ import Atos from '~/utils/Atos'
       }
     },
 
+    methods: {
+      showLightbox(index) {
+
+        this.imgs = this.projectsImages.map(e => `https://drupal.icon-ad.com${e.big}` );
+        this.index = index
+        this.show()
+      },
+      show() {
+        this.visible = true
+        document.body.classList.add('overflow-x-auto');
+      },
+      handleHide() {
+        this.visible = false
+        // document.body.classList.remove('fixed');
+      },
+      startCounting () {
+        alert('here im aher here')
+      },
+    },
+
     mounted() {
+
+
       const elements = this.gsap.utils.toArray('.atos');
       Atos(this.gsap, elements)
+
+
     },
 
     computed: {

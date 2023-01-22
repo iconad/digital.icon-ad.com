@@ -40,7 +40,7 @@
       <!-- column -->
 
       <div>
-        <h4 class="text-lg 3xl:text-xl font-semibold">Headquarters</h4>
+        <h4 class="text-lg 3xl:text-xl font-semibold">Main Office</h4>
         <p class="mt-2 text-sm md:text-sm 3xl:text-sm font-medium text-gray-800">
           <span class="block">Office 306</span>
           <span class="block">Spectrum Building</span>

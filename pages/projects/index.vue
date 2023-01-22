@@ -31,15 +31,24 @@
           <!-- <div class="projects-masonry-grid gap-16 grid grid-cols-2 grid-flow-row"> -->
             <client-only>
               <masonry :cols="{default: 2, 920: 1}" :gutter="{default: '50px', 1120: '20px', 880: '50px'}" >
-              <div class="mb-10 cursor-pointer" @click="goTo(project.slug)" v-for="(project, i) in projects" :key="i">
+              <div class="mb-10 cursor-pointer" v-for="(project, i) in projects" :key="i">
 
-                <UtilsProjectImage options="bg-gray-100 w-full object-cover rounded-2xl overflow-hidden" :mini="project.image_mini" :image="project.large_thumb" />
+
+                <div @click="goTo(project.slug)">
+                  <UtilsProjectImage options="cursor-pointer bg-gray-100 w-full object-cover rounded-2xl overflow-hidden" :mini="project.image_mini" :image="project.large_thumb" />
+                </div>
 
                 <div class="mt-5 space-y-3 px-5 pt-3 pb-8 w-full lg:w-3/4">
+                  <span @click="goTo(project.slug)" class="cursor-pointer inline-block px-4 py-1 text-sm border rounded-full tracking-wide capitalize font-medium">
+
+                    <span v-if="project.client" v-html="project.client"></span>
+                    <span v-else v-html="project.custom_client"></span>
+
+                  </span>
                   <h2 class="text-xl md:text-2xl 2xl:text-3xl font-semibold uppercase">
                     <nuxt-link :to="`/projects${project.slug}`" v-html="project.title"> </nuxt-link>
                   </h2>
-                  <!-- <div v-html="project.body" class="text-sm md:text-base opacity-80"></div> -->
+                  <ReadLessMore :text="project.body"  />
                 </div>
 
               </div>
@@ -76,6 +85,19 @@
 
 export default {
 
+  head: {
+    title: 'Digital Marketing Portfolio: Take a Look at some of our work',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: `ICON digital is a top-ranked branding, digital marketing, and design agency in the UAE. Our clients benefit greatly from working with us. Here are a few examples."`
+      }
+    ],
+  },
+
   data() {
     return {
       projects: [],
@@ -93,6 +115,10 @@ export default {
     }
   },
 
+  mounted() {
+    document.body.classList.add('overflow-x-hidden');
+  },
+
 
   methods: {
 
@@ -105,7 +131,7 @@ export default {
     },
 
     getProjectsWithPagination () {
-      this.$axios.$get(`/all-projects?_format=json&subsidiary=1&industriy=${this.selectedIndustry}`).then(resp => {
+      this.$axios.$get(`/all-digital-projects?_format=json&subsidiary=1&industriy=${this.selectedIndustry}`).then(resp => {
           this.projects = resp;
         })
         .catch(err => {
@@ -119,7 +145,7 @@ export default {
 
         this.page++;
 
-        this.$axios.$get(`/all-projects?_format=json&subsidiary=1&page=${this.page}`).then(resp => {
+        this.$axios.$get(`/all-digital-projects?_format=json&subsidiary=1&page=${this.page}`).then(resp => {
           if (resp.length > 1) { // check if any left
             resp.forEach(item => this.projects.push(item));
             $state.loaded();
@@ -140,7 +166,7 @@ export default {
   async asyncData({ $axios, store }) {
 
     const carousel = await $axios.$get(`/projects/home/slides/digital`)
-    const projects = await $axios.$get(`/all-projects?_format=json&page=0&subsidiary=1`)
+    const projects = await $axios.$get(`/all-digital-projects?_format=json&page=0&subsidiary=1`)
     const expertise = await $axios.$get(`/expertises`)
     const industries = await $axios.$get(`/industries-list`)
     const services = await $axios.$get(`/all-services`)
