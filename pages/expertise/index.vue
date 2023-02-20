@@ -13,35 +13,36 @@
     </section>
     <!-- cover -->
 
-
     <section class="expertise-wrapper mt-12">
       <div class="theme-container">
 
         <div class="service text-white masonry-wrapper">
+          <client-only>
           <masonry :cols="{default: 2, 920: 1}" :gutter="{default: '32px'}" columnClass="flex flex-col lg:block">
 
-              <div :id="expertie.block_id" v-for="(expertie, i) in expertise" :key="i" class="my-4 lg:my-8 cursor-pointer" :class=" i == 0  ? 'lg:mt-48' : '' " :style="`order:${expertie.mobile_order}`" @click="goTo(expertie.link)">
-              <div  v-if="expertie.white.toLowerCase() == 'yes' " class="content-side w-full bg-theme-gray-1 text-white rounded-3xl">
+              <div :id="expertie.block_id" v-for="(expertie, i) in expertise" :key="i" class="my-4 lg:my-8" :class=" i == 0  ? 'lg:mt-48' : '' " :style="`order:${expertie.mobile_order}`">
+
+              <div v-if="expertie.white && expertie.white.toLowerCase() == 'yes' " class="content-side w-full bg-theme-gray-1 text-white rounded-3xl">
                     <div class="p-5 lg:p-16 flex flex-col justify-between h-full">
                       <div class="space-y-5">
-                        <h3 v-if="expertie.title" class="text-3xl md:text-4xl font-semibold">
+                        <h3 v-if="expertie.title" class="cursor-pointer text-3xl md:text-4xl font-semibold" @click="goTo(expertie.link)">
                           <span class="block-span" v-for="(text, q) in breakText(expertie.title)" :key="q" v-html="text"></span>
                         </h3>
-                        <div v-if="expertie.details" class="text-lg md:text-xl font-light space-y-3 text-gray-200" v-html="expertie.details"></div>
+                        <div @click="goTo(expertie.link)" v-if="expertie.details" class="cursor-pointer text-base md:text-lg font-light space-y-3 text-gray-200" v-html="expertie.details"></div>
                       </div>
 
-                      <AdvertisingExpertiseSubExpertisesList :expertise="expertie.expertise" />
+                      <AdvertisingExpertiseSubExpertisesList :link="expertie.link" :expertise="expertie.expertise" />
 
                     </div>
                 </div>
                 <!-- content side -->
-
-                <div v-else class="image-project-side w-full relative rounded-3xl overflow-hidden">
+                <div class="image-project-side w-full relative overflow-hidden" :style="`height: ${expertie.height}rem`">
                   <UtilsImage @click="goTo(expertie.link)" :mini="expertie.image_mini" :image="expertie.image" options="w-full object-cover object-bottom rounded-3xl" :height="expertie.height"/>
                 </div>
                 <!-- image side -->
             </div>
           </masonry>
+          </client-only>
         </div>
 
       </div>

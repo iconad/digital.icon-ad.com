@@ -9,6 +9,7 @@
             </span>
             <span class="hover:text-theme-red hover:text-theme-sky hover:text-theme-pink hover:text-theme-purple hover:text-theme-sky-dark hover:text-theme-purple"></span>
           </h3>
+          <p class="w-2/3 mx-auto text-center" v-html="item.description"></p>
           <span class="bg-transparent block opacity-90">
             <AssetsRightArrowWhite options="w-6 lg:w-8 3xl:w-10 h-6 lg:h-8 3xl:h-10 mx-auto" />
           </span>

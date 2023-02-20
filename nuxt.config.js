@@ -24,6 +24,14 @@ export default {
           "marketing strategy, graphic design, brochure design, advertising agencies in dubai, advertising companies in dubai, branding agency dubai, digital marketing agency dubai, digital marketing companies dubai, event management companies in dubai, event companies in dubai, digital marketing, web design, seo company dubai, web development companies in dubai, web design company dubai, digital agency dubai, creative agency dubai, motion graphics, 3d rendering, social media strategy"
       }
     ],
+    __dangerouslyDisableSanitizers: ["script"],
+    script: [
+      {
+        hid: "tiddo",
+        src: "https://code.tidio.co/63q3jhgjc4qzurtjnpz5dne6s8coi7zi.js",
+        defer: true
+      },
+    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

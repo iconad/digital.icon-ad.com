@@ -2,6 +2,7 @@
   <div>
     <client-only>
       <v-lazy-image
+        v-if="image"
         :class="options"
         :src="`https://drupal.icon-ad.com${image}`"
         :src-placeholder="`https://drupal.icon-ad.com${mini}`"

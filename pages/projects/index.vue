@@ -66,7 +66,7 @@
         <client-only>
           <infinite-loading v-if="projects.length" @infinite="infiniteScroll">
             <div slot="spinner">Loading...</div>
-            <div slot="no-more">The End!</div>
+            <div slot="no-more">More to be added soon!</div>
           </infinite-loading>
         </client-only>
 

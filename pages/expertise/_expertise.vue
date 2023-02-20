@@ -45,9 +45,14 @@
 
           <!-- ======== Content ======== -->
 
-          <div :id="`accordionbody${data.id}`" class="accordionbody pt-5 pb-10 page-detail myb-5 text-gray-800 space-y-5 service-content text-base white-bg-content hidden"
-             v-html="data.body">
+          <div :ref="`accordionbody${data.id}`" :id="`accordionbody${data.id}`" class="accordionbody pt-5 page-detail myb-5 text-gray-800 space-y-5 service-content text-base white-bg-content hidden">
+              <div v-html="data.body"></div>
+             <div class="text-right p-3">
+              <a href="#ContactSection" class="black-button-sm"> Get Quote </a>
+            </div>
           </div>
+
+          
 
           <!-- ======== Content ======== -->
 
@@ -182,15 +187,54 @@
         };
       },
       data() {
-        return {}
+        return {
+          checkOpen: false
+        }
       },
 
       mounted() {
-        const elements = this.gsap.utils.toArray('.atos');
-        Atos(this.gsap, elements)
+
+
+        if (this.$route.query.open) {
+          const open = this.$route.query.open.replace(/\s+/g, '-').toLowerCase()
+
+          const id = this.accordionData.filter(el => el.title.replace(/\s+/g, '-').toLowerCase() === open).map(el => el.id)
+
+          if(id.length != 0) {
+            this.openAccordionByName(id)          
+          }else{
+            this.openAccordionByDefault()
+          }
+        }
+
       },
 
       methods: {
+
+        openAccordionByName (id) {
+          if (process.client) {
+
+            this.$nextTick(()=>{
+              let accordion = document.getElementById(`accordionbody${id}`)
+              if(accordion) {
+                accordion.classList.remove('hidden')
+              }
+            });
+
+          }
+        },
+
+        openAccordionByDefault () {
+          if (process.client) {
+            this.$nextTick(()=>{
+              let accordionbody = document.querySelector('.accordionbody')
+              accordionbody.classList.remove('hidden')
+            });
+
+          }
+        },
+
+
         accordion (id) {
 
           let selectedAccordion = document.getElementById(`accordionbody${id}`)

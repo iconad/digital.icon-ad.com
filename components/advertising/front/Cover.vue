@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-[60vh] sm:h-[70vh] lg:h-screen 3xl:h-[60vh] w-full flex items-center font-black relative text-center md:text-left">
+  <div class="w-full h-[70vh] sm:h-[70vh] lg:h-screen 3xl:h-[80vh] w-full flex items-center font-black relative text-center md:text-left">
       <div class="px-5 w-full space-y-10 lg:space-y-20">
 
             <div class="theme-container">
@@ -16,7 +16,7 @@
                 </transition>
                 </h1>
 
-                <p class="hidden md:block text-sm md:text-lg lg:text-2xl font-semibold w-4/5">We speak the digital language, that is driven by creativity, results, outstanding ideas and concepts.</p>
+                <p class="hidden md:block text-sm md:text-lg font-medium w-4/5">At Icon, we believe that creativity and strategy go hand in hand to deliver powerful results in digital marketing domain. With a deep understanding of the digital landscape and a passion for delivering sustained positive results, we're eager to partner with you on your marketing journey. Let's bring your brand's story to life and create a lasting impact in the ever-evolving world of digital marketing.</p>
 
 
 

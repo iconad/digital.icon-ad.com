@@ -122,6 +122,23 @@
     <!-- related projects -->
 
 
+    <section id="ContactSection" class="contact-section text-white mb-10 md:mb-16">
+       <div class="theme-container">
+         <div class="bg-gray-100 rounded-2xl overflow-hidden px-10 lg:px-0 py-32">
+          <FormsContactUs
+            :data="{
+              title: 'have an',
+              title2: 'impact',
+              subtitle: 'Join the most powerful',
+              subtitle2: 'brands in the world.'
+          }"
+            />
+         </div>
+       </div>
+    </section>
+    <!-- contact section end -->
+
+
   </div>
 </template>
 
