@@ -11,6 +11,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      spacing: {
+        '128': '32rem',
+        '144': '36rem',
+      },
       fontSize: {
         'xxs': '.60rem',
         'xxxs': '.50rem'
@@ -30,6 +34,7 @@ module.exports = {
         'theme-gray-1': '#1A1A1A',
         'theme-black-opacity-50': '#00000096',
         'theme-black-opacity-70': '#000000d4',
+        'light-blue': '#F4505F',
       },
       scale: {
         '120': '1.20',
@@ -38,9 +43,15 @@ module.exports = {
         '3xl': '1800px',
         'se': '380px',
       },
+      borderRadius: {
+        '4xl': '2rem'
+      },
       lineHeight: {
         '11': '3rem',
         '12': '3.2rem',
+      },
+      inset: {
+        '-0.2': '-0.12rem'
       },
       height: {
         'screen-50': '50vh',

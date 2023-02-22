@@ -24,7 +24,8 @@
     </client-only>
 
     <div id="DigitalNumbers2" class="theme-container-lg mt-16 sm:mt-32" v-if="project.numbers">
-      <AdvertisingProjectDigitalNumbers :numbers="project.numbers" />
+      <AdvertisingProjectDigitalNumbers v-if="project.new_design === 1" :numbers="project.numbers" :image="project.phone_grid_image" />
+      <AdvertisingProjectOldDigitalNumbers v-else :numbers="project.numbers" :image="project.phone_grid_image" />
     </div>
 
     <div class="project-content space-y-8">
