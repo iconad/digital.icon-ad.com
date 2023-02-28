@@ -35,7 +35,7 @@
 
         <!-- Captcha Start -->
         <div class="select-none transition-all duration-100 focus:outline-none active:outline-none active:border-none group flex flex-wrap items-center h-full">
-          <span :class="captcha.status ? 'bg-green-400' : 'bg-theme-gray-dark'" class="bg-opacity-75 px-4 py-2 transition-all rounded-xl block mr-3 flex items-center justify-between space-x-2 w-1/4 text-gray-100">
+          <span :class="captcha.status ? 'bg-green-400' : 'bg-theme-gray-dark'" class="bg-opacity-75 px-4 py-2 transition-all rounded-xl block mr-3 flex items-center justify-between space-x-2 w-[45%] md:w-1/4 mb-3 md:mb-0 text-gray-100 whitespace-nowrap">
             <span class="block">
               {{captcha.num1}}
               {{captcha.opreator}}

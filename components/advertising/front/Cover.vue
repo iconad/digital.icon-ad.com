@@ -5,18 +5,15 @@
             <div class="theme-container">
               <div class="space-y-5 lg:space-y-10">
 
-                <h1 class="text-[2rem] sm:text-[3rem] lg:text-[4rem] items-center w-full leading-tight italic lg:not-italic md:leading-none">
-                  <transition appear>
-                    <span class="inline md:block">It’s a World with <br class="block md:hidden"></span>
-
-                </transition>
-                <transition appear>
-                    <span class="inline md:inline-block"> a <span class="rainbow-text-digital font-icon"> Digital Perspective</span></span>
-
-                </transition>
+                <h1 class="text-[2rem] sm:text-[3rem] lg:text-[2.5rem] items-center w-full leading-tight italic lg:not-italic md:leading-none">
+                    <span class="inline md:block">  Revolutionize Your Business'
+                      <br class="hidden lg:block">Online Presence with Our <br class="hidden lg:block"></span>
+                      <span class="inline md:inline-block">
+                      <span class="rainbow-text-digital font-icon "> Data-Driven Digital Marketing Strategies.</span>
+                    </span>
                 </h1>
 
-                <p class="hidden md:block text-sm md:text-lg font-medium w-4/5">At Icon, we believe that creativity and strategy go hand in hand to deliver powerful results in digital marketing domain. With a deep understanding of the digital landscape and a passion for delivering sustained positive results, we're eager to partner with you on your marketing journey. Let's bring your brand's story to life and create a lasting impact in the ever-evolving world of digital marketing.</p>
+                <p class="hidden md:block text-sm md:text-base font-medium w-4/5">At Icon, we believe that creativity and strategy go hand in hand to deliver powerful results in digital marketing domain. With a deep understanding of the digital landscape and a passion for delivering sustained positive results, we're eager to partner with you on your marketing journey. Let's bring your brand's story to life and create a lasting impact in the ever-evolving world of digital marketing.</p>
 
 
 

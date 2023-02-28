@@ -1,11 +1,11 @@
 <template>
   <div>
 
-    <h2 class="font-semibold mb-5 tracking-wide">Key Highlights</h2>
+    <h2 class="font-semibold mb-5 tracking-wide uppercase">Key Highlights</h2>
 
 
 
-    <div class="flex flex-wrap md:flex-nowrap md:space-x-5">
+    <div class="flex flex-wrap md:flex-nowrap md:space-x-5 space-y-2 lg:space-y-0">
       <div class="w-full">
         <div class="grid grid-cols-2 lg:grid-cols-6 gap-2 sm:gap-5 h-full">
           <!-- ignore the below divs, its for generating classes -->
@@ -20,11 +20,11 @@
             <div class="w-full">
               <div class="flex items-center justify-center space-x-2 mb-5">
                 <span class="w-5 text-gray-500">
-                  <UtilsImage :image="number.icon" :mini="number.icon" options="h-5 mb-[2px]" />
+                  <UtilsImage :image="number.icon" :mini="number.icon" options="h-4 lg:h-5 mb-[2px]" />
                 </span>
-                <span class="uppercase tracking-wide font-medium" v-html="number.label"> </span>
+                <span class="uppercase text-sm lg:text-base tracking-wide font-medium" v-html="number.label"> </span>
               </div>
-              <span :style="`color:${number.color}`" class="mt-10 leading-none text-5xl sm:text-6xl 3xl:text-7xl text-gray-800 font-bold uppercase text-theme-red scroll-counter" data-counter-time="1500" v-html="number.number"></span>
+              <span :style="`color:${number.color}`" class="mt-10 leading-none text-4xl md:text-5xl lg:text-6xl 3xl:text-7xl text-gray-800 font-bold uppercase text-theme-red scroll-counter" data-counter-time="1500" v-html="number.number"></span>
             </div>
             <div v-if="number.detail" class="font-medium text-sm text-gray-800 bg-gray-200 w-full rounded-lg py-2">
               <div v-html="number.detail"></div>

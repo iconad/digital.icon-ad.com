@@ -9,7 +9,7 @@ export const state = () => ({
       opreator: null,
       success: false,
       error: false,
-      message: 'Answer to the quesiton to submit',
+      message: 'Answer the quesiton to submit',
       attempts: 0
     }
   });
@@ -68,7 +68,7 @@ export const state = () => ({
       state.captcha.status = false
       state.captcha.success = false
       state.captcha.error = false
-      state.captcha.message = "Answer to the quesiton to submit"
+      state.captcha.message = "Answer the quesiton to submit"
       state.captcha.input = null
       state.captcha.attempts = 0
     }

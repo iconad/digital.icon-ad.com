@@ -35,7 +35,7 @@
 
         <!-- Captcha Start -->
         <div class="select-none transition-all duration-100 focus:outline-none active:outline-none active:border-none group flex flex-wrap items-center h-full">
-          <span :class="captcha.status ? 'bg-green-200' : 'bg-gray-300'" class="bg-opacity-75 px-4 py-2 transition-all rounded-xl block mr-3 flex items-center justify-between space-x-2 w-[50%] md:w-[30%] mb-3 md:mb-0">
+          <span :class="captcha.status ? 'bg-green-200' : 'bg-gray-300'" class="bg-opacity-75 px-4 py-2 transition-all rounded-xl block mr-3 flex items-center justify-between space-x-2 w-[30%]">
             <span class="block">
               {{captcha.num1}}
               {{captcha.opreator}}
@@ -48,14 +48,14 @@
               <input type="text" v-model="input" :disabled="captcha.status" @input="checkCaptcha" class="w-10 rounded-full text-center focus:outline-none" :class="captcha.status ? 'select-none bg-green-200' : 'bg-gray-50'" placeholder="?">
             </span>
           </span>
-          <div v-if="captcha" class="w-full md:w-4/6 select-none font-medium right-0 text-sm text-left" :class=" captcha.success ? 'text-green-500' : captcha.error ? 'text-theme-red' : 'text-gray-600'">
+          <div v-if="captcha" class="w-4/6 select-none font-medium right-0 text-sm text-left" :class=" captcha.success ? 'text-green-500' : captcha.error ? 'text-theme-red' : 'text-gray-600'">
             {{captcha.message}}
           </div>
         </div>
         <!-- Captcha End -->
           
         <div v-if="!isLoading" class="form-element">
-          <span v-if="captcha && !captcha.status" class="text-center select-none form-button block rainbow-gray w-full cursor-not-allowed hover:bg-opacity-100"> Submit </span>
+          <span v-if="captcha && !captcha.status" class="select-none form-button block rainbow-gray w-full cursor-not-allowed hover:bg-opacity-100"> Submit </span>
           <input v-else type="submit" class="form-button rainbow w-full cursor-pointer hover:bg-opacity-100" value="Submit">
         </div>
         <!-- form element -->

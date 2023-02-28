@@ -6,6 +6,10 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.landing-container {
+  @apply max-w-[1100px] 3xl:max-w-7xl mx-auto px-5;
+}
+
 .theme-container-lg {
   @apply max-w-screen-lg 3xl:max-w-7xl mx-auto px-5;
 }
@@ -43,7 +47,7 @@ body {
 }
 
 .rainbow-text-digital {
-  @apply font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-theme-sky via-theme-pink to-theme-red;
+  @apply font-black text-transparent bg-clip-text bg-gradient-to-r from-theme-sky via-theme-pink to-theme-red;
 }
 
 .rainbow-text-purple-red {
@@ -150,7 +154,7 @@ body {
 
 .white-bg-content h1, .white-bg-content h2, .white-bg-content h3, .white-bg-content h4, .white-bg-content h5, .white-bg-content h6 {
 
-  @apply mb-2;
+  @apply mb-2 uppercase;
 
 }
 
@@ -180,6 +184,10 @@ body {
 
 .white-bg-content li{
   @apply space-y-3;
+}
+
+.white-bg-content p strong{
+  @apply uppercase;
 }
 
 

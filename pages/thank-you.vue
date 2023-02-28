@@ -1,10 +1,10 @@
 <template>
   <div>
     <section
-      class="section contact-section h-screen-50 flex items-center"
+      class="section contact-section pt-20 h-[60vh] flex items-center"
     >
       <div
-        class="px-5 xxl:px-0 mx-auto flex items-center justify-center w-full md:w-1/4 text-center"
+        class="px-5 xxl:px-0 mx-auto flex items-center justify-center w-full lg:w-1/4 text-center"
       >
         <div>
           <span class="text-green-500">

@@ -11,7 +11,7 @@
         </div>
 
         <div class="w-full lg:w-1/2 mx-auto">
-          <FormsForm />
+          <FormsLandingForm />
         </div>
 
       </div>

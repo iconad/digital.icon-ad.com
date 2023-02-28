@@ -15,9 +15,9 @@ export default () => {
 
         if(/^\d+$/.test(lastChar)) {
             numberCounter = innerNumber            
-    }else{
+        }else{
             numberCounter = innerNumber.substr(0, innerNumber.length - 1)
-    }
+        }
 
         
         // ========= Seprating Text and Number End =======
@@ -30,7 +30,12 @@ export default () => {
 
         item.updateCounter = function() {
             item.counterCount = item.counterCount + item.counterStep
-            item.innerHTML = Math.ceil(item.counterCount).toLocaleString() + lastChar
+
+            if(/^\d+$/.test(lastChar)) {
+            item.innerHTML = Math.ceil(item.counterCount).toLocaleString()
+            }else{
+              item.innerHTML = Math.ceil(item.counterCount).toLocaleString() + lastChar
+            }
             item.classList.add('animate')
             
             if (item.counterCount < item.counterTarget) {
